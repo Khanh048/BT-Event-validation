@@ -26,7 +26,7 @@
 - Kotlin
 - Android XML Views và ViewBinding
 - Material Components: `TextInputLayout`, `TextInputEditText`, `MaterialButton`, `Snackbar`
-- Android Gradle Plugin 9.4.0, Gradle 9.6.0, compile/target SDK 37, min SDK 24
+- Android Gradle Plugin 9.3.0, Gradle 9.6.0, compile/target SDK 37, min SDK 24
 
 ## Mở và chạy bằng Android Studio
 

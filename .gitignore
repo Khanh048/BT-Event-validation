@@ -4,8 +4,10 @@
 
 # Gradle
 .gradle/
+.kotlin/
 build/
 **/build/
+gradle/gradle-daemon-jvm.properties
 
 # Local machine configuration
 local.properties
