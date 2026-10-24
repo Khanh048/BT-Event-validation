@@ -26,4 +26,14 @@
 
     <string name="registration_invalid">Vui lòng kiểm tra lại các trường bị lỗi</string>
     <string name="registration_success">Đăng ký thành công!</string>
+    <string name="view_details_action">Xem chi tiết</string>
+
+    <string name="detail_title">Chi tiết đăng ký</string>
+    <string name="detail_subtitle">Thông tin sinh viên đã được ghi nhận thành công.</string>
+    <string name="full_name_detail_label">HỌ VÀ TÊN</string>
+    <string name="email_detail_label">EMAIL</string>
+    <string name="phone_detail_label">SỐ ĐIỆN THOẠI</string>
+    <string name="student_id_detail_label">MÃ SINH VIÊN</string>
+    <string name="class_name_detail_label">LỚP</string>
+    <string name="back_to_registration_button">Quay lại đăng ký</string>
 </resources>

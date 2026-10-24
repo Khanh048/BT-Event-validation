@@ -10,6 +10,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.khanh.bteventvalidation.R
 import com.khanh.bteventvalidation.databinding.ActivityRegistrationBinding
+import com.khanh.bteventvalidation.detail.DetailActivity
+import com.khanh.bteventvalidation.model.StudentRegistration
 import com.khanh.bteventvalidation.validation.FormValidator
 
 class RegistrationActivity : AppCompatActivity() {
@@ -34,22 +36,29 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     private fun handleRegistration() {
-        if (!validateForm()) {
+        val registration = readForm()
+        if (!validateForm(registration)) {
             Snackbar.make(binding.root, R.string.registration_invalid, Snackbar.LENGTH_SHORT).show()
             return
         }
 
         hideKeyboard()
-        Snackbar.make(binding.root, R.string.registration_success, Snackbar.LENGTH_LONG).show()
+        Snackbar.make(binding.root, R.string.registration_success, Snackbar.LENGTH_INDEFINITE)
+            .setAction(R.string.view_details_action) {
+                startActivity(DetailActivity.createIntent(this, registration))
+            }
+            .show()
     }
 
-    private fun validateForm(): Boolean {
-        val fullName = binding.etFullName.text?.toString()?.trim().orEmpty()
-        val email = binding.etEmail.text?.toString()?.trim().orEmpty()
-        val phone = binding.etPhone.text?.toString()?.trim().orEmpty()
-        val studentId = binding.etStudentId.text?.toString()?.trim().orEmpty()
-        val className = binding.etClassName.text?.toString()?.trim().orEmpty()
+    private fun readForm() = StudentRegistration(
+        fullName = binding.etFullName.text?.toString()?.trim().orEmpty(),
+        email = binding.etEmail.text?.toString()?.trim().orEmpty(),
+        phone = binding.etPhone.text?.toString()?.trim().orEmpty(),
+        studentId = binding.etStudentId.text?.toString()?.trim().orEmpty(),
+        className = binding.etClassName.text?.toString()?.trim().orEmpty(),
+    )
 
+    private fun validateForm(registration: StudentRegistration): Boolean {
         var isFormValid = true
         var firstInvalidField: View? = null
 
@@ -64,40 +73,40 @@ class RegistrationActivity : AppCompatActivity() {
         showError(
             binding.tilFullName,
             when {
-                fullName.isBlank() -> getString(R.string.error_full_name_required)
-                !FormValidator.isFullNameValid(fullName) -> getString(R.string.error_full_name_invalid)
+                registration.fullName.isBlank() -> getString(R.string.error_full_name_required)
+                !FormValidator.isFullNameValid(registration.fullName) -> getString(R.string.error_full_name_invalid)
                 else -> null
             },
         )
         showError(
             binding.tilEmail,
             when {
-                email.isBlank() -> getString(R.string.error_email_required)
-                !FormValidator.isEmailValid(email) -> getString(R.string.error_email_invalid)
+                registration.email.isBlank() -> getString(R.string.error_email_required)
+                !FormValidator.isEmailValid(registration.email) -> getString(R.string.error_email_invalid)
                 else -> null
             },
         )
         showError(
             binding.tilPhone,
             when {
-                phone.isBlank() -> getString(R.string.error_phone_required)
-                !FormValidator.isPhoneValid(phone) -> getString(R.string.error_phone_invalid)
+                registration.phone.isBlank() -> getString(R.string.error_phone_required)
+                !FormValidator.isPhoneValid(registration.phone) -> getString(R.string.error_phone_invalid)
                 else -> null
             },
         )
         showError(
             binding.tilStudentId,
             when {
-                studentId.isBlank() -> getString(R.string.error_student_id_required)
-                !FormValidator.isStudentIdValid(studentId) -> getString(R.string.error_student_id_invalid)
+                registration.studentId.isBlank() -> getString(R.string.error_student_id_required)
+                !FormValidator.isStudentIdValid(registration.studentId) -> getString(R.string.error_student_id_invalid)
                 else -> null
             },
         )
         showError(
             binding.tilClassName,
             when {
-                className.isBlank() -> getString(R.string.error_class_name_required)
-                !FormValidator.isClassNameValid(className) -> getString(R.string.error_class_name_invalid)
+                registration.className.isBlank() -> getString(R.string.error_class_name_required)
+                !FormValidator.isClassNameValid(registration.className) -> getString(R.string.error_class_name_invalid)
                 else -> null
             },
         )

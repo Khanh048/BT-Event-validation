@@ -7,6 +7,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BTEventValidation">
         <activity
+            android:name=".detail.DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".registration.RegistrationActivity"
             android:exported="true">
             <intent-filter>
