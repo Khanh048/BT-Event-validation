@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Đăng ký sinh viên</string>
+
+    <string name="registration_title">Đăng ký</string>
+    <string name="registration_subtitle">Nhập thông tin sinh viên để hoàn tất đăng ký.</string>
+    <string name="full_name_label">Họ và tên *</string>
+    <string name="email_label">Email *</string>
+    <string name="phone_label">Số điện thoại *</string>
+    <string name="student_id_label">Mã sinh viên *</string>
+    <string name="student_id_helper">Từ 5–15 chữ cái hoặc chữ số</string>
+    <string name="class_name_label">Lớp *</string>
+    <string name="register_button">Đăng ký</string>
+    <string name="required_fields_note">* Tất cả các trường đều bắt buộc</string>
+
+    <string name="error_full_name_required">Vui lòng nhập họ và tên</string>
+    <string name="error_full_name_invalid">Họ tên phải có ít nhất 2 từ và chỉ chứa chữ cái</string>
+    <string name="error_email_required">Vui lòng nhập email</string>
+    <string name="error_email_invalid">Email không đúng định dạng (ví dụ: ten@example.com)</string>
+    <string name="error_phone_required">Vui lòng nhập số điện thoại</string>
+    <string name="error_phone_invalid">SĐT phải có 10 số và bắt đầu bằng 03, 05, 07, 08 hoặc 09</string>
+    <string name="error_student_id_required">Vui lòng nhập mã sinh viên</string>
+    <string name="error_student_id_invalid">MSV phải gồm 5–15 chữ cái hoặc chữ số, không có khoảng trắng</string>
+    <string name="error_class_name_required">Vui lòng nhập lớp</string>
+    <string name="error_class_name_invalid">Tên lớp từ 2–30 ký tự, không chứa ký tự đặc biệt</string>
+
+    <string name="registration_invalid">Vui lòng kiểm tra lại các trường bị lỗi</string>
+    <string name="registration_success">Đăng ký thành công!</string>
 </resources>
